@@ -332,7 +332,14 @@ export class ContentZenClient {
     if (!res.ok) {
       throw new Error(`Request failed: ${res.status} ${res.statusText}`);
     }
-    return typeof window === 'undefined' ? res.buffer() : res.blob();
+    if (typeof window === 'undefined') {
+      // Node.js: return Buffer
+      const arrayBuffer = await res.arrayBuffer();
+      return Buffer.from(arrayBuffer);
+    } else {
+      // Browser: return Blob
+      return res.blob();
+    }
   }
 
   // ------------------- Webhooks (API Token) -------------------

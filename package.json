@@ -12,10 +12,17 @@
     "type": "git",
     "url": "https://github.com/your-org/contentzen-sdk.git"
   },
-  "keywords": ["contentzen", "headless cms", "sdk", "typescript", "javascript"],
+  "keywords": [
+    "contentzen",
+    "headless cms",
+    "sdk",
+    "typescript",
+    "javascript"
+  ],
   "author": "ContentZen",
   "license": "MIT",
   "devDependencies": {
+    "@types/node": "^24.1.0",
     "typescript": "^5.0.0"
   }
 }
